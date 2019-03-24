@@ -21,6 +21,31 @@ public class Bootstrap implements CommandLineRunner {
     // Good upgrade would bo create new method for every load data
     @Override
     public void run(String... args) {
+        loadCategories();
+        loadCustomers();
+    }
+
+    private void loadCustomers() {
+        Customer customer1 = new Customer();
+        customer1.setFirstName("Taka");
+        customer1.setLastName("Hayami");
+
+        Customer customer2 = new Customer();
+        customer2.setFirstName("Ryuki");
+        customer2.setLastName("Rafa");
+
+        Customer customer3 = new Customer();
+        customer3.setFirstName("Ayumi");
+        customer3.setLastName("Hayami");
+
+        customerRepository.save(customer1);
+        customerRepository.save(customer2);
+        customerRepository.save(customer3);
+
+        System.out.println("Customer Data Loaded = " + customerRepository.count());
+    }
+
+    private void loadCategories() {
         Category fruits = new Category();
         fruits.setName("Fruits");
 
@@ -43,24 +68,5 @@ public class Bootstrap implements CommandLineRunner {
         categoryRepository.save(nuts);
 
         System.out.println("Category Data Loaded = " + categoryRepository.count());
-
-        Customer customer1 = new Customer();
-        customer1.setFirstName("Taka");
-        customer1.setLastName("Hayami");
-
-        Customer customer2 = new Customer();
-        customer2.setFirstName("Ryuki");
-        customer2.setLastName("Rafa");
-
-        Customer customer3 = new Customer();
-        customer3.setFirstName("Ayumi");
-        customer3.setLastName("Hayami");
-
-        customerRepository.save(customer1);
-        customerRepository.save(customer2);
-        customerRepository.save(customer3);
-
-        System.out.println("Customer Data Loaded = " + customerRepository.count());
-
     }
 }

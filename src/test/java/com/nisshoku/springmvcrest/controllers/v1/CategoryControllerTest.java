@@ -1,7 +1,9 @@
 package com.nisshoku.springmvcrest.controllers.v1;
 
 import com.nisshoku.springmvcrest.api.v1.model.CategoryDTO;
+import com.nisshoku.springmvcrest.controllers.RestResponseEntityExceptionHandler;
 import com.nisshoku.springmvcrest.services.CategoryService;
+import com.nisshoku.springmvcrest.services.ResourceNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -39,7 +41,8 @@ public class CategoryControllerTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        mockMvc = MockMvcBuilders.standaloneSetup(categoryController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(categoryController)
+                .setControllerAdvice(new RestResponseEntityExceptionHandler()).build();
     }
 
     @Test
@@ -76,5 +79,15 @@ public class CategoryControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", equalTo(NAME)));
+    }
+
+    @Test
+    public void testGetByNameNotFound() throws Exception {
+
+        when(categoryService.getCategoryByName(anyString())).thenThrow(ResourceNotFoundException.class);
+
+        mockMvc.perform(get(CategoryController.BASE_URL + "/foo")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
     }
 }

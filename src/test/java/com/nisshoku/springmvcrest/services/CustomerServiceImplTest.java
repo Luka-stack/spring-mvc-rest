@@ -142,12 +142,4 @@ public class CustomerServiceImplTest {
         assertEquals(customerDTO.getFirstName(), savedDTO.getFirstName());
         assertEquals(CustomerController.BASE_URL +  "/1", savedDTO.getCustomerUrl());
     }
-
-    @Test
-    public void deleteCustomerTest() {
-
-        customerRepository.deleteById(ID);
-
-        verify(customerRepository, times(1)).deleteById(anyLong());
-    }
 }

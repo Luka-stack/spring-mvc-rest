@@ -94,6 +94,19 @@ public class CustomerServiceImplIT {
 
     }
 
+    @Test
+    public void customerDeleteByIdTest() {
+
+        long id = getCustomerIdValue();
+        Customer deleteCustomer = customerRepository.getOne(id);
+        assertNotNull(deleteCustomer);
+
+        CustomerDTO deleteDTO = customerService.deleteCustomerById(id);
+
+        assertEquals(deleteCustomer.getFirstName(), deleteDTO.getFirstName());
+        assertEquals(deleteCustomer.getLastName(), deleteDTO.getLastName());
+    }
+
     private Long getCustomerIdValue() {
         List<Customer> customers = customerRepository.findAll();
 

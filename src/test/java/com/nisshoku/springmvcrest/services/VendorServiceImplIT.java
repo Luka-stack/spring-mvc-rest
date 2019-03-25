@@ -49,7 +49,6 @@ public class VendorServiceImplIT {
         Vendor deleteVendor = vendorRepository.getOne(id);
         assertNotNull(deleteVendor);
 
-        List<Vendor> vendors = vendorRepository.findAll();
         VendorDTO vendorDTO = vendorService.deleteVendorById(id);
 
         assertEquals(deleteVendor.getName(), vendorDTO.getName());

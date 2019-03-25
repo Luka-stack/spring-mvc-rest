@@ -92,8 +92,15 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomerById(Long id) {
+    public CustomerDTO deleteCustomerById(Long id) {
+
+        CustomerDTO customerDTO = customerRepository.findById(id)
+                .map(customerMapper::customerToCustomerDTO)
+                .orElseThrow(ResourceNotFoundException::new);
+
         customerRepository.deleteById(id);
+
+        return customerDTO;
     }
 
     private CustomerDTO saveAndReturnDTO(Customer customer) {

@@ -76,11 +76,6 @@ public class VendorServiceImpl implements VendorService {
         }).orElseThrow(ResourceNotFoundException::new);
     }
 
-/*    @Override
-    public void deleteVendorById(Long id) {
-        vendorRepository.deleteById(id);
-    }*/
-
     @Override
     public VendorDTO deleteVendorById(Long id) {
 

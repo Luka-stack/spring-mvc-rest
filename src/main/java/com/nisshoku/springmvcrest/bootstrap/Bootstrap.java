@@ -2,8 +2,10 @@ package com.nisshoku.springmvcrest.bootstrap;
 
 import com.nisshoku.springmvcrest.domain.Category;
 import com.nisshoku.springmvcrest.domain.Customer;
+import com.nisshoku.springmvcrest.domain.Vendor;
 import com.nisshoku.springmvcrest.repositories.CategoryRepository;
 import com.nisshoku.springmvcrest.repositories.CustomerRepository;
+import com.nisshoku.springmvcrest.repositories.VendorRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +14,13 @@ public class Bootstrap implements CommandLineRunner {
 
     private final CategoryRepository categoryRepository;
     private final CustomerRepository customerRepository;
+    private final VendorRepository vendorRepository;
 
-    public Bootstrap(CategoryRepository categoryRepository, CustomerRepository customerRepository) {
+    public Bootstrap(CategoryRepository categoryRepository, CustomerRepository customerRepository,
+                     VendorRepository vendorRepository) {
         this.categoryRepository = categoryRepository;
         this.customerRepository = customerRepository;
+        this.vendorRepository = vendorRepository;
     }
 
     // Good upgrade would bo create new method for every load data
@@ -23,6 +28,7 @@ public class Bootstrap implements CommandLineRunner {
     public void run(String... args) {
         loadCategories();
         loadCustomers();
+        loadVendors();
     }
 
     private void loadCustomers() {
@@ -68,5 +74,23 @@ public class Bootstrap implements CommandLineRunner {
         categoryRepository.save(nuts);
 
         System.out.println("Category Data Loaded = " + categoryRepository.count());
+    }
+
+    private void loadVendors() {
+
+        Vendor vendor1 = new Vendor();
+        vendor1.setName("Some Name");
+
+        Vendor vendor2 = new Vendor();
+        vendor2.setName("Some other name");
+
+        Vendor vendor3 = new Vendor();
+        vendor3.setName("Rys");
+
+        vendorRepository.save(vendor1);
+        vendorRepository.save(vendor2);
+        vendorRepository.save(vendor3);
+
+        System.out.println("Vendor Data Loaded = " + vendorRepository.count());
     }
 }

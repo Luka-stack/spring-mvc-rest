@@ -112,11 +112,11 @@ public class VendorServiceImplTest {
         assertEquals(VendorController.BASE_URL + "/1", savedDTO.getVendorUrl());
     }
 
-    @Test
-    public void deleteVendorById () {
-
-        vendorRepository.deleteById(ID);
-
-        verify(vendorRepository, times(1)).deleteById(anyLong());
-    }
+//    @Test
+//    public void deleteVendorById () {
+//
+//        vendorRepository.deleteById(ID);
+//
+//        verify(vendorRepository, times(1)).deleteById(anyLong());
+//    }
 }

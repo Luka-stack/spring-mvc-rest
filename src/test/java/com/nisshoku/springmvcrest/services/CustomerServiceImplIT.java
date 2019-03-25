@@ -6,6 +6,7 @@ import com.nisshoku.springmvcrest.bootstrap.Bootstrap;
 import com.nisshoku.springmvcrest.domain.Customer;
 import com.nisshoku.springmvcrest.repositories.CategoryRepository;
 import com.nisshoku.springmvcrest.repositories.CustomerRepository;
+import com.nisshoku.springmvcrest.repositories.VendorRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +22,7 @@ import static org.hamcrest.core.IsNot.not;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class CustomerServiceIT {
+public class CustomerServiceImplIT {
 
     @Autowired
     CustomerRepository customerRepository;
@@ -29,11 +30,14 @@ public class CustomerServiceIT {
     @Autowired
     CategoryRepository categoryRepository;
 
+    @Autowired
+    VendorRepository vendorRepository;
+
     CustomerService customerService;
 
     @Before
     public void setUp() throws Exception {
-        Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository);
+        Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository, vendorRepository);
         bootstrap.run();
 
         customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository);

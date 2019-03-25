@@ -17,7 +17,7 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-public class CustomerServiceTest {
+public class CustomerServiceImplTest {
 
     private final Long ID = 1L;
     private final String FIRST_NAME = "Taka";

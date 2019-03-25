@@ -145,7 +145,7 @@ public class VendorControllerTest {
                 .andExpect(jsonPath("$.vendor_url", equalTo(VendorController.BASE_URL + "/1")));
     }
 
-    @Test
+/*    @Test
     public void deleteVendorTest() throws Exception {
 
         mockMvc.perform(delete(VendorController.BASE_URL + "/1")
@@ -153,5 +153,19 @@ public class VendorControllerTest {
                 .andExpect(status().isOk());
 
         verify(vendorService).deleteVendorById(anyLong());
+    }*/
+
+    @Test
+    public void deleteVendorTest() throws Exception{
+
+        VendorDTO vendorDTO = new VendorDTO();
+        vendorDTO.setName(NAME);
+
+        when(vendorService.deleteVendorById(anyLong())).thenReturn(vendorDTO);
+
+        mockMvc.perform(delete(VendorController.BASE_URL + "/1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", equalTo(NAME)));
     }
 }

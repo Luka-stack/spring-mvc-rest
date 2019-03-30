@@ -40,8 +40,11 @@ public class CustomerServiceImpl implements CustomerService {
 
         return customerRepository.findByLastName(lastName)
                 .stream()
-                .map(customerMapper::customerToCustomerDTO)
-                .peek(customerDTO -> customerDTO.setCustomerUrl(getCustomerUrl(customerDTO.getId())))
+                .map(customer -> {
+                    CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(customer);
+                    customerDTO.setCustomerUrl(getCustomerUrl(customer.getId()));
+                    return customerDTO;
+                })
                 .collect(Collectors.toList());
     }
 
@@ -51,7 +54,7 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(id)
                 .map(customerMapper::customerToCustomerDTO)
                 .map(customerDTO -> {
-                    customerDTO.setCustomerUrl(getCustomerUrl(customerDTO.getId()));
+                    customerDTO.setCustomerUrl(getCustomerUrl(id));
                     return customerDTO;
                 })
                 .orElseThrow(ResourceNotFoundException::new);

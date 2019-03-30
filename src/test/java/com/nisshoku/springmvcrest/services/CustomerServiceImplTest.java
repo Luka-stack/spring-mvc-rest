@@ -92,7 +92,6 @@ public class CustomerServiceImplTest {
         CustomerDTO customerDTO = customerService.getCustomerById(ID);
 
         // then
-        assertEquals(ID, customerDTO.getId());
         assertEquals(FIRST_NAME, customerDTO.getFirstName());
         assertEquals(LAST_NAME, customerDTO.getLastName());
     }

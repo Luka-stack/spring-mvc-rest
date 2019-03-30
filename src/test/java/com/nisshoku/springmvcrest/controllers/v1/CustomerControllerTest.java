@@ -52,12 +52,10 @@ public class CustomerControllerTest {
     public void testListCustomers() throws Exception {
 
         CustomerDTO customer1 = new CustomerDTO();
-        customer1.setId(ID);
         customer1.setFirstName(FIRST_NAME);
         customer1.setLastName(LAST_NAME);
 
         CustomerDTO customer2 = new CustomerDTO();
-        customer2.setId(2L);
         customer2.setFirstName("Ryuki");
         customer2.setLastName("Rafa");
 
@@ -75,12 +73,10 @@ public class CustomerControllerTest {
     public void testGetCustomersByLastName() throws Exception {
 
         CustomerDTO customerDTO1 = new CustomerDTO();
-        customerDTO1.setId(ID);
         customerDTO1.setFirstName(FIRST_NAME);
         customerDTO1.setLastName(LAST_NAME);
 
         CustomerDTO customerDTO2 = new CustomerDTO();
-        customerDTO2.setId(2L);
         customerDTO2.setFirstName("Luki");
         customerDTO2.setLastName(LAST_NAME);
 
@@ -100,7 +96,6 @@ public class CustomerControllerTest {
     public void testGetCustomerById() throws Exception {
 
         CustomerDTO customerDTO1 = new CustomerDTO();
-        customerDTO1.setId(ID);
         customerDTO1.setFirstName(FIRST_NAME);
         customerDTO1.setLastName(LAST_NAME);
         customerDTO1.setCustomerUrl(CustomerController.BASE_URL +  "/1");

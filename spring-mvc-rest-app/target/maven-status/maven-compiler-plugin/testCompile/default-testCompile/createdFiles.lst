@@ -1,0 +1,12 @@
+com/nisshoku/springmvcrest/controllers/v1/AbstractRestControllerTest.class
+com/nisshoku/springmvcrest/services/CategoryServiceImplTest.class
+com/nisshoku/springmvcrest/api/v1/mapper/CustomerMapperTest.class
+com/nisshoku/springmvcrest/services/VendorServiceImplIT.class
+com/nisshoku/springmvcrest/controllers/v1/VendorControllerTest.class
+com/nisshoku/springmvcrest/controllers/v1/CustomerControllerTest.class
+com/nisshoku/springmvcrest/controllers/v1/CategoryControllerTest.class
+com/nisshoku/springmvcrest/services/VendorServiceImplTest.class
+com/nisshoku/springmvcrest/SpringMvcRestApplicationTests.class
+com/nisshoku/springmvcrest/api/v1/mapper/CategoryMapperTest.class
+com/nisshoku/springmvcrest/services/CustomerServiceImplTest.class
+com/nisshoku/springmvcrest/services/CustomerServiceImplIT.class

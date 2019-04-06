@@ -1,0 +1,12 @@
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/controllers/v1/CustomerControllerTest.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/SpringMvcRestApplicationTests.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/controllers/v1/CategoryControllerTest.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/controllers/v1/AbstractRestControllerTest.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/services/CustomerServiceImplTest.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/services/CategoryServiceImplTest.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/api/v1/mapper/CategoryMapperTest.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/services/CustomerServiceImplIT.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/services/VendorServiceImplIT.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/controllers/v1/VendorControllerTest.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/services/VendorServiceImplTest.java
+/home/takacchi/IdeaProjects/spring-mvc-rest/spring-mvc-rest-app/src/test/java/com/nisshoku/springmvcrest/api/v1/mapper/CustomerMapperTest.java

@@ -1,7 +1,7 @@
 package com.nisshoku.springmvcrest.services;
 
+import com.nisshoku.model.CustomerDTO;
 import com.nisshoku.springmvcrest.api.v1.mapper.CustomerMapper;
-import com.nisshoku.springmvcrest.api.v1.model.CustomerDTO;
 import com.nisshoku.springmvcrest.controllers.v1.CustomerController;
 import com.nisshoku.springmvcrest.domain.Customer;
 import com.nisshoku.springmvcrest.repositories.CustomerRepository;

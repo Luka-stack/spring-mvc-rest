@@ -1,6 +1,6 @@
 package com.nisshoku.springmvcrest.api.v1.mapper;
 
-import com.nisshoku.springmvcrest.api.v1.model.CustomerDTO;
+import com.nisshoku.model.CustomerDTO;
 import com.nisshoku.springmvcrest.domain.Customer;
 import org.junit.Test;
 

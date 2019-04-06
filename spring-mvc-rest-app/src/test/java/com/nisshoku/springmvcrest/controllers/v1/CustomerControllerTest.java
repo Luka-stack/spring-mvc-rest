@@ -1,6 +1,6 @@
 package com.nisshoku.springmvcrest.controllers.v1;
 
-import com.nisshoku.springmvcrest.api.v1.model.CustomerDTO;
+import com.nisshoku.model.CustomerDTO;
 import com.nisshoku.springmvcrest.controllers.RestResponseEntityExceptionHandler;
 import com.nisshoku.springmvcrest.services.CustomerService;
 import org.junit.Before;
@@ -109,7 +109,7 @@ public class CustomerControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.firstName", equalTo(FIRST_NAME)))
-                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL +  "/1")));
+                .andExpect(jsonPath("$.customerUrl", equalTo(CustomerController.BASE_URL +  "/1")));
 
     }
 
@@ -125,7 +125,7 @@ public class CustomerControllerTest {
         returnedDTO.setLastName(customerDTO.getLastName());
         returnedDTO.setCustomerUrl(CustomerController.BASE_URL +  "/1");
 
-        when(customerService.creatNewCustomer(customerDTO)).thenReturn(returnedDTO);
+        when(customerService.creatNewCustomer(any())).thenReturn(returnedDTO);
 
         mockMvc.perform(post(CustomerController.BASE_URL)
                 .accept(MediaType.APPLICATION_JSON)
@@ -133,7 +133,7 @@ public class CustomerControllerTest {
                 .content(asJsonString(customerDTO)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.firstName", equalTo(FIRST_NAME)))
-                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL +  "/1")));
+                .andExpect(jsonPath("$.customerUrl", equalTo(CustomerController.BASE_URL +  "/1")));
     }
 
     @Test
@@ -157,7 +157,7 @@ public class CustomerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.firstName", equalTo(FIRST_NAME)))
                 .andExpect(jsonPath("$.lastName", equalTo(LAST_NAME)))
-                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL +  "/1")));
+                .andExpect(jsonPath("$.customerUrl", equalTo(CustomerController.BASE_URL +  "/1")));
     }
 
     @Test
@@ -180,7 +180,7 @@ public class CustomerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.firstName", equalTo(FIRST_NAME)))
                 .andExpect(jsonPath("$.lastName", equalTo(LAST_NAME)))
-                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL +  "/1")));
+                .andExpect(jsonPath("$.customerUrl", equalTo(CustomerController.BASE_URL +  "/1")));
     }
 
     @Test

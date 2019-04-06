@@ -1,6 +1,6 @@
 package com.nisshoku.springmvcrest.services;
 
-import com.nisshoku.springmvcrest.api.v1.model.CustomerDTO;
+import com.nisshoku.model.CustomerDTO;
 
 import java.util.List;
 

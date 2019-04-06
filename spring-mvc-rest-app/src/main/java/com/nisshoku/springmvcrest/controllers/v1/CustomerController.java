@@ -1,7 +1,7 @@
 package com.nisshoku.springmvcrest.controllers.v1;
 
-import com.nisshoku.springmvcrest.api.v1.model.CustomerDTO;
-import com.nisshoku.springmvcrest.api.v1.model.CustomerListDTO;
+import com.nisshoku.model.CustomerDTO;
+import com.nisshoku.model.CustomerListDTO;
 import com.nisshoku.springmvcrest.services.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,15 +25,19 @@ public class CustomerController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CustomerListDTO getAllCustomers() {
+        CustomerListDTO customerListDTO = new CustomerListDTO();
+        customerListDTO.getCustomers().addAll(customerService.getAllCustomers());
 
-        return new CustomerListDTO(customerService.getAllCustomers());
+        return customerListDTO;
     }
 
     @GetMapping({"/bylastname/{lastName}", "/byLastName/{lastName}"})
     @ResponseStatus(HttpStatus.OK)
     public CustomerListDTO getCustomersByLastName(@PathVariable String lastName) {
+        CustomerListDTO customerListDTO = new CustomerListDTO();
+        customerListDTO.getCustomers().addAll(customerService.getCustomersByLastName(lastName));
 
-        return new CustomerListDTO(customerService.getCustomersByLastName(lastName));
+        return customerListDTO;
     }
 
     @GetMapping("/{id}")
